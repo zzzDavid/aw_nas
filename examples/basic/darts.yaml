@@ -30,7 +30,7 @@ search_space_cfg:
 
 ## ---- Component dataset ----
 # ---- Type cifar10 ----
-dataset_type: cifar10
+dataset_type: tiny-imagenet
 dataset_cfg:
   # Schedulable attributes: 
   cutout: null
@@ -54,11 +54,11 @@ controller_cfg:
 
 ## ---- Component evaluator ----
 # ---- Type mepa ----
-evaluator_type: mepa
+evaluator_type: siamese
 evaluator_cfg:
   # Schedulable attributes: controller_surrogate_steps, mepa_surrogate_steps, mepa_samples
   rollout_type: differentiable
-  batch_size: 64
+  batch_size: 16 
   controller_surrogate_steps: 0
   mepa_surrogate_steps: 0
   derive_surrogate_steps: null
@@ -112,7 +112,7 @@ weights_manager_cfg:
   # Schedulable attributes: 
   rollout_type: differentiable
   gpus: [0]
-  num_classes: 10
+  num_classes: 200
   init_channels: 16
   stem_multiplier: 3
   max_grad_norm: 5.0
